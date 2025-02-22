@@ -1,0 +1,14 @@
+e-nose\aipbmgr.o: ../X-CUBE-AI/App/aiPbMgr.c
+e-nose\aipbmgr.o: ../X-CUBE-AI/App/aiPbMgr.h
+e-nose\aipbmgr.o: C:\software\keil5\ARM\ARMCC\Bin\..\include\stdint.h
+e-nose\aipbmgr.o: ../X-CUBE-AI/App/pb.h
+e-nose\aipbmgr.o: C:\software\keil5\ARM\ARMCC\Bin\..\include\stddef.h
+e-nose\aipbmgr.o: C:\software\keil5\ARM\ARMCC\Bin\..\include\stdbool.h
+e-nose\aipbmgr.o: C:\software\keil5\ARM\ARMCC\Bin\..\include\string.h
+e-nose\aipbmgr.o: ../X-CUBE-AI/App/stm32msg.pb.h
+e-nose\aipbmgr.o: ../X-CUBE-AI/App/aiPbIO.h
+e-nose\aipbmgr.o: ../X-CUBE-AI/App/pb_encode.h
+e-nose\aipbmgr.o: ../X-CUBE-AI/App/pb_decode.h
+e-nose\aipbmgr.o: ../X-CUBE-AI/App/ai_device_adaptor.h
+e-nose\aipbmgr.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
+e-nose\aipbmgr.o: ../Drivers/CMSIS/Include/cmsis_armcc.h

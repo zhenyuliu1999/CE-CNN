@@ -1,0 +1,9 @@
+e-nose\aipbmemrwservices.o: ../X-CUBE-AI/App/aiPbMemRWServices.c
+e-nose\aipbmemrwservices.o: ../X-CUBE-AI/App/aiPbMemRWServices.h
+e-nose\aipbmemrwservices.o: ../X-CUBE-AI/App/aiPbMgr.h
+e-nose\aipbmemrwservices.o: C:\software\keil5\ARM\ARMCC\Bin\..\include\stdint.h
+e-nose\aipbmemrwservices.o: ../X-CUBE-AI/App/pb.h
+e-nose\aipbmemrwservices.o: C:\software\keil5\ARM\ARMCC\Bin\..\include\stddef.h
+e-nose\aipbmemrwservices.o: C:\software\keil5\ARM\ARMCC\Bin\..\include\stdbool.h
+e-nose\aipbmemrwservices.o: C:\software\keil5\ARM\ARMCC\Bin\..\include\string.h
+e-nose\aipbmemrwservices.o: ../X-CUBE-AI/App/stm32msg.pb.h

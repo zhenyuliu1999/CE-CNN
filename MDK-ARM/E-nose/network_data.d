@@ -1,0 +1,16 @@
+e-nose\network_data.o: ../X-CUBE-AI/App/network_data.c
+e-nose\network_data.o: ../X-CUBE-AI/App/network_data.h
+e-nose\network_data.o: ../X-CUBE-AI/App/network_config.h
+e-nose\network_data.o: ../X-CUBE-AI/App/network_data_params.h
+e-nose\network_data.o: ../Middlewares/ST/AI/Inc/ai_platform.h
+e-nose\network_data.o: C:\software\keil5\ARM\ARMCC\Bin\..\include\stdint.h
+e-nose\network_data.o: C:\software\keil5\ARM\ARMCC\Bin\..\include\stddef.h
+e-nose\network_data.o: C:\software\keil5\ARM\ARMCC\Bin\..\include\inttypes.h
+e-nose\network_data.o: C:\software\keil5\ARM\ARMCC\Bin\..\include\stdbool.h
+e-nose\network_data.o: ../Middlewares/ST/AI/Inc/ai_platform_interface.h
+e-nose\network_data.o: ../Middlewares/ST/AI/Inc/datatypes_network.h
+e-nose\network_data.o: ../Middlewares/ST/AI/Inc/ai_datatypes.h
+e-nose\network_data.o: C:\software\keil5\ARM\ARMCC\Bin\..\include\string.h
+e-nose\network_data.o: ../Middlewares/ST/AI/Inc/ai_datatypes_format.h
+e-nose\network_data.o: ../Middlewares/ST/AI/Inc/ai_datatypes_defines.h
+e-nose\network_data.o: ../Middlewares/ST/AI/Inc/formats_list.h

@@ -1,0 +1,16 @@
+cecnn\cecnn_data.o: ../X-CUBE-AI/App/cecnn_data.c
+cecnn\cecnn_data.o: ../X-CUBE-AI/App/cecnn_data.h
+cecnn\cecnn_data.o: ../X-CUBE-AI/App/cecnn_config.h
+cecnn\cecnn_data.o: ../X-CUBE-AI/App/cecnn_data_params.h
+cecnn\cecnn_data.o: ../Middlewares/ST/AI/Inc/ai_platform.h
+cecnn\cecnn_data.o: F:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+cecnn\cecnn_data.o: F:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+cecnn\cecnn_data.o: F:\Keil_v5\ARM\ARMCC\Bin\..\include\inttypes.h
+cecnn\cecnn_data.o: F:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+cecnn\cecnn_data.o: ../Middlewares/ST/AI/Inc/ai_platform_interface.h
+cecnn\cecnn_data.o: ../Middlewares/ST/AI/Inc/datatypes_network.h
+cecnn\cecnn_data.o: ../Middlewares/ST/AI/Inc/ai_datatypes.h
+cecnn\cecnn_data.o: F:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+cecnn\cecnn_data.o: ../Middlewares/ST/AI/Inc/ai_datatypes_format.h
+cecnn\cecnn_data.o: ../Middlewares/ST/AI/Inc/ai_datatypes_defines.h
+cecnn\cecnn_data.o: ../Middlewares/ST/AI/Inc/formats_list.h

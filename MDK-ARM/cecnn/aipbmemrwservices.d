@@ -1,0 +1,9 @@
+cecnn\aipbmemrwservices.o: ../X-CUBE-AI/App/aiPbMemRWServices.c
+cecnn\aipbmemrwservices.o: ../X-CUBE-AI/App/aiPbMemRWServices.h
+cecnn\aipbmemrwservices.o: ../X-CUBE-AI/App/aiPbMgr.h
+cecnn\aipbmemrwservices.o: F:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+cecnn\aipbmemrwservices.o: ../X-CUBE-AI/App/pb.h
+cecnn\aipbmemrwservices.o: F:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+cecnn\aipbmemrwservices.o: F:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+cecnn\aipbmemrwservices.o: F:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+cecnn\aipbmemrwservices.o: ../X-CUBE-AI/App/stm32msg.pb.h

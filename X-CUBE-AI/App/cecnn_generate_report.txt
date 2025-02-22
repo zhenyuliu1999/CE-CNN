@@ -1,0 +1,272 @@
+Neural Network Tools for STM32 family v1.7.0 (stm.ai v8.1.0-19520)
+Created date          : 2024-06-16 21:36:44
+Parameters            : generate --name cecnn -m C:/Users/Administrator/Desktop/CE-CNN.h5 --type keras --compression low --verbosity 1 --workspace C:\Users\ADMINI~1\AppData\Local\Temp\mxAI_workspace237282366344009955019708424323247 --output C:\Users\Administrator\.stm32cubemx\network_output --allocate-inputs --series stm32f4 --allocate-outputs
+
+Exec/report summary (generate)
+--------------------------------------------------------------------------------------------------------------
+model file         :   C:\Users\Administrator\Desktop\CE-CNN.h5                                      
+type               :   keras                                                                                  
+c_name             :   cecnn                                                                                  
+compression        :   low                                                                                    
+options            :   allocate-inputs, allocate-outputs                                                      
+optimization       :   balanced                                                                               
+target/series      :   stm32f4                                                                                
+workspace dir      :   C:\Users\ADMINI~1\AppData\Local\Temp\mxAI_workspace237282366344009955019708424323247   
+output dir         :   C:\Users\Administrator\.stm32cubemx\network_output                                     
+model_fmt          :   float                                                                                  
+model_name         :   ECNN4003607                                                                            
+model_hash         :   f12a0b86a0ed901df047c8424a65705d                                                       
+params #           :   93,609 items (365.66 KiB)                                                              
+--------------------------------------------------------------------------------------------------------------
+input 1/1          :   'input_1' (domain:activations/**default**)                                             
+                   :   2520 items, 9.84 KiB, ai_float, float, (1,360,7)                                       
+output 1/1         :   'dense_5_dense' (domain:activations/**default**)                                       
+                   :   1 items, 4 B, ai_float, float, (1,1)                                                   
+macc               :   144,009                                                                                
+weights (ro)       :   98,980 B (96.66 KiB) (1 segment) / -275,456(-73.6%) vs float model                     
+activations (rw)   :   10,180 B (9.94 KiB) (1 segment) *                                                      
+ram (total)        :   10,180 B (9.94 KiB) = 10,180 + 0 + 0                                                   
+--------------------------------------------------------------------------------------------------------------
+(*) 'input'/'output' buffers can be used from the activations buffer
+
+Model name - CECNN ['input_1'] ['dense_5_dense']
+------ --------------------------------------------------------- -------------------------- ---------------- -------- -------------------------- --- ------------------ ----------------- ------------------------------- 
+m_id   layer (type,original)                                     oshape                     param/size           macc               connected to   | c_size             c_macc            c_type                          
+------ --------------------------------------------------------- -------------------------- ---------------- -------- -------------------------- --- ------------------ ----------------- ------------------------------- 
+0      input_1 (Input, InputLayer)                               [b:None,h:360,h:360,c:7]                                                          |                                      
+------ --------------------------------------------------------- -------------------------- ---------------- -------- -------------------------- --- ------------------ ----------------- ------------------------------- 
+1      conv1d_conv2d (Conv2D, Conv1D)                            [b:None,h:90,h:90,c:16]    464/1,856          40,336                    input_1   |                    +1,440(+3.6%)     conv2d_of32/nl_of32[0, 1]       
+       conv1d (Nonlinearity, Conv1D)                             [b:None,h:90,h:90,c:16]                        1,440              conv1d_conv2d   |                    -1,440(-100.0%)   
+------ --------------------------------------------------------- -------------------------- ---------------- -------- -------------------------- --- ------------------ ----------------- ------------------------------- 
+2      batch_normalization (ScaleBias, BatchNormalization)       [b:None,h:90,h:90,c:16]    32/128              2,880                     conv1d   |                                      bn_of32[2]                      
+------ --------------------------------------------------------- -------------------------- ---------------- -------- -------------------------- --- ------------------ ----------------- ------------------------------- 
+3      max_pooling1d (Pool, MaxPooling1D)                        [b:None,h:90,h:90,c:16]                        1,440        batch_normalization   |                                      pool_of32[3]                    
+------ --------------------------------------------------------- -------------------------- ---------------- -------- -------------------------- --- ------------------ ----------------- ------------------------------- 
+4      global_average_pooling1d (Pool, GlobalAveragePooling1D)   [b:None,h:1,h:1,c:16]                          1,440              max_pooling1d   |                                      pool_of32[4]                    
+------ --------------------------------------------------------- -------------------------- ---------------- -------- -------------------------- --- ------------------ ----------------- ------------------------------- 
+5      reshape (Reshape, Reshape)                                [b:1,h:1,h:1,c:16]                                     global_average_pooling1d   |                                      
+------ --------------------------------------------------------- -------------------------- ---------------- -------- -------------------------- --- ------------------ ----------------- ------------------------------- 
+6      dense_dense (Dense, Dense)                                [b:1,h:1,h:1,c:8]          136/544               136                    reshape   |                    +80(+58.8%)       dense_of32/nl_of32[9, 10]       
+       dense (Nonlinearity, Dense)                               [b:1,h:1,h:1,c:8]                                 80                dense_dense   |                    -80(-100.0%)      
+------ --------------------------------------------------------- -------------------------- ---------------- -------- -------------------------- --- ------------------ ----------------- ------------------------------- 
+7      dense_1_dense (Dense, Dense)                              [b:1,h:1,h:1,c:16]         144/576               144                      dense   |                    +160(+111.1%)     dense_of32/nl_of32[11, 12]      
+       dense_1 (Nonlinearity, Dense)                             [b:1,h:1,h:1,c:16]                               160              dense_1_dense   |                    -160(-100.0%)     
+------ --------------------------------------------------------- -------------------------- ---------------- -------- -------------------------- --- ------------------ ----------------- ------------------------------- 
+8      reshape_1 (Reshape, Reshape)                              [b:1,h:1,h:1,c:16]                                                      dense_1   |                                      
+------ --------------------------------------------------------- -------------------------- ---------------- -------- -------------------------- --- ------------------ ----------------- ------------------------------- 
+9      dense_2_dense (Dense, Dense)                              [b:1,h:1,h:1,c:16]         272/1,088             272                    reshape   |                    +16(+5.9%)        dense_of32/nl_of32[5, 6]        
+       dense_2 (Nonlinearity, Dense)                             [b:1,h:1,h:1,c:16]                                16              dense_2_dense   |                    -16(-100.0%)      
+------ --------------------------------------------------------- -------------------------- ---------------- -------- -------------------------- --- ------------------ ----------------- ------------------------------- 
+10     multiply (Eltwise, Multiply)                              [b:1,h:90,h:90,c:16]                           1,440              max_pooling1d   |                                      eltwise/mul_of32[13]            
+                                                                                                                                       reshape_1   | 
+------ --------------------------------------------------------- -------------------------- ---------------- -------- -------------------------- --- ------------------ ----------------- ------------------------------- 
+11     dense_3_dense (Dense, Dense)                              [b:1,h:1,h:1,c:16]         272/1,088             272                    dense_2   |                    +160(+58.8%)      dense_of32/nl_of32[7, 8]        
+       dense_3 (Nonlinearity, Dense)                             [b:1,h:1,h:1,c:16]                               160              dense_3_dense   |                    -160(-100.0%)     
+------ --------------------------------------------------------- -------------------------- ---------------- -------- -------------------------- --- ------------------ ----------------- ------------------------------- 
+12     add (Eltwise, Add)                                        [b:1,h:90,h:90,c:16]                           1,440                   multiply   |                                      eltwise/sum_of32[14]            
+                                                                                                                                         dense_3   | 
+------ --------------------------------------------------------- -------------------------- ---------------- -------- -------------------------- --- ------------------ ----------------- ------------------------------- 
+13     flatten (Reshape, Flatten)                                [b:None,c:1440]                                                             add   |                                      
+------ --------------------------------------------------------- -------------------------- ---------------- -------- -------------------------- --- ------------------ ----------------- ------------------------------- 
+14     dense_4_dense (Dense, Dense)                              [b:None,c:64]              92,224/368,896     92,224                    flatten   | -275,456(-74.7%)   +64(+0.1%)        dense_wc8of32/nl_of32[15, 16]   
+       dense_4 (Nonlinearity, Dense)                             [b:None,c:64]                                     64              dense_4_dense   |                    -64(-100.0%)      
+------ --------------------------------------------------------- -------------------------- ---------------- -------- -------------------------- --- ------------------ ----------------- ------------------------------- 
+15     dense_5_dense (Dense, Dense)                              [b:None,c:1]               65/260                 65                    dense_4   |                                      dense_of32[o][17]               
+------ --------------------------------------------------------- -------------------------- ---------------- -------- -------------------------- --- ------------------ ----------------- ------------------------------- 
+model/c-model: macc=144,009/144,009  weights=374,436/98,980 -275,456(-73.6%) activations=--/10,180 io=--/0
+
+
+
+Generated C-graph summary
+------------------------------------------------------------------------------------------------------------------------
+model name            : ecnn4003607
+c-name                : cecnn
+c-node #              : 18
+c-array #             : 35
+activations size      : 10180 (1 segment)
+weights size          : 98980 (1 segment)
+macc                  : 144009
+inputs                : ['input_1_output']
+outputs               : ['dense_5_dense_output']
+
+C-Arrays (35)
+------ --------------------------------- ------------- ------------------------- ------------- ----------- --------- 
+c_id   name (*_array)                    item/size     domain/mem-pool           c-type        fmt         comment   
+------ --------------------------------- ------------- ------------------------- ------------- ----------- --------- 
+0      input_1_output                    2520/10080    activations/**default**   float         float32     /input    
+1      conv1d_conv2d_output              1440/5760     activations/**default**   float         float32               
+2      conv1d_output                     1440/5760     activations/**default**   float         float32               
+3      batch_normalization_output        1440/5760     activations/**default**   float         float32               
+4      max_pooling1d_output              1440/5760     activations/**default**   float         float32               
+5      global_average_pooling1d_output   16/64         activations/**default**   float         float32               
+6      dense_2_dense_output              16/64         activations/**default**   float         float32               
+7      dense_2_output                    16/64         activations/**default**   float         float32               
+8      dense_3_dense_output              16/64         activations/**default**   float         float32               
+9      dense_3_output                    16/64         activations/**default**   float         float32               
+10     dense_dense_output                8/32          activations/**default**   float         float32               
+11     dense_output                      8/32          activations/**default**   float         float32               
+12     dense_1_dense_output              16/64         activations/**default**   float         float32               
+13     dense_1_output                    16/64         activations/**default**   float         float32               
+14     multiply_output                   1440/5760     activations/**default**   float         float32               
+15     add_output                        1440/5760     activations/**default**   float         float32               
+16     dense_4_dense_output              64/256        activations/**default**   float         float32               
+17     dense_4_output                    64/256        activations/**default**   float         float32               
+18     dense_5_dense_output              1/4           activations/**default**   float         float32     /output   
+19     conv1d_conv2d_weights             448/1792      weights/weights           const float   float32               
+20     conv1d_conv2d_bias                16/64         weights/weights           const float   float32               
+21     batch_normalization_scale         16/64         weights/weights           const float   float32               
+22     batch_normalization_bias          16/64         weights/weights           const float   float32               
+23     dense_2_dense_weights             256/1024      weights/weights           const float   float32               
+24     dense_2_dense_bias                16/64         weights/weights           const float   float32               
+25     dense_3_dense_weights             256/1024      weights/weights           const float   float32               
+26     dense_3_dense_bias                16/64         weights/weights           const float   float32               
+27     dense_dense_weights               128/512       weights/weights           const float   float32               
+28     dense_dense_bias                  8/32          weights/weights           const float   float32               
+29     dense_1_dense_weights             128/512       weights/weights           const float   float32               
+30     dense_1_dense_bias                16/64         weights/weights           const float   float32               
+31     dense_4_dense_weights             92160/93184   weights/weights           const float   c8 (LUT8)             
+32     dense_4_dense_bias                64/256        weights/weights           const float   float32               
+33     dense_5_dense_weights             64/256        weights/weights           const float   float32               
+34     dense_5_dense_bias                1/4           weights/weights           const float   float32               
+------ --------------------------------- ------------- ------------------------- ------------- ----------- --------- 
+
+C-Layers (18)
+------ -------------------------- ---- -------------- ------- ------- ------------------------------------ ------------------ 
+c_id   name (*_layer)             id   layer_type     macc    rom     tensors                              shape (array id)   
+------ -------------------------- ---- -------------- ------- ------- ------------------------------------ ------------------ 
+0      conv1d_conv2d              1    conv2d         40336   1856    I: input_1_output                    (1,360,7) (0)      
+                                                                      W: conv1d_conv2d_weights             (7,4,1,16) (19)    
+                                                                      W: conv1d_conv2d_bias                (16,) (20)         
+                                                                      O: conv1d_conv2d_output              (1,90,16) (1)      
+------ -------------------------- ---- -------------- ------- ------- ------------------------------------ ------------------ 
+1      conv1d                     1    nl             1440    0       I: conv1d_conv2d_output              (1,90,16) (1)      
+                                                                      O: conv1d_output                     (1,90,16) (2)      
+------ -------------------------- ---- -------------- ------- ------- ------------------------------------ ------------------ 
+2      batch_normalization        2    bn             2880    128     I: conv1d_output                     (1,90,16) (2)      
+                                                                      W: batch_normalization_scale         (16,) (21)         
+                                                                      W: batch_normalization_bias          (16,) (22)         
+                                                                      O: batch_normalization_output        (1,90,16) (3)      
+------ -------------------------- ---- -------------- ------- ------- ------------------------------------ ------------------ 
+3      max_pooling1d              3    pool           1440    0       I: batch_normalization_output        (1,90,16) (3)      
+                                                                      O: max_pooling1d_output              (1,90,16) (4)      
+------ -------------------------- ---- -------------- ------- ------- ------------------------------------ ------------------ 
+4      global_average_pooling1d   4    pool           1440    0       I: max_pooling1d_output              (1,90,16) (4)      
+                                                                      O: global_average_pooling1d_output   (1,1,16) (5)       
+------ -------------------------- ---- -------------- ------- ------- ------------------------------------ ------------------ 
+5      dense_2_dense              9    dense          272     1088    I: global_average_pooling1d_output   (1,1,16) (5)       
+                                                                      W: dense_2_dense_weights             (16,16) (23)       
+                                                                      W: dense_2_dense_bias                (16,) (24)         
+                                                                      O: dense_2_dense_output              (1,1,16) (6)       
+------ -------------------------- ---- -------------- ------- ------- ------------------------------------ ------------------ 
+6      dense_2                    9    nl             16      0       I: dense_2_dense_output              (1,1,16) (6)       
+                                                                      O: dense_2_output                    (1,1,16) (7)       
+------ -------------------------- ---- -------------- ------- ------- ------------------------------------ ------------------ 
+7      dense_3_dense              11   dense          272     1088    I: dense_2_output                    (1,1,16) (7)       
+                                                                      W: dense_3_dense_weights             (16,16) (25)       
+                                                                      W: dense_3_dense_bias                (16,) (26)         
+                                                                      O: dense_3_dense_output              (1,1,16) (8)       
+------ -------------------------- ---- -------------- ------- ------- ------------------------------------ ------------------ 
+8      dense_3                    11   nl             160     0       I: dense_3_dense_output              (1,1,16) (8)       
+                                                                      O: dense_3_output                    (1,1,16) (9)       
+------ -------------------------- ---- -------------- ------- ------- ------------------------------------ ------------------ 
+9      dense_dense                6    dense          136     544     I: global_average_pooling1d_output   (1,1,16) (5)       
+                                                                      W: dense_dense_weights               (16,8) (27)        
+                                                                      W: dense_dense_bias                  (8,) (28)          
+                                                                      O: dense_dense_output                (1,1,8) (10)       
+------ -------------------------- ---- -------------- ------- ------- ------------------------------------ ------------------ 
+10     dense                      6    nl             80      0       I: dense_dense_output                (1,1,8) (10)       
+                                                                      O: dense_output                      (1,1,8) (11)       
+------ -------------------------- ---- -------------- ------- ------- ------------------------------------ ------------------ 
+11     dense_1_dense              7    dense          144     576     I: dense_output                      (1,1,8) (11)       
+                                                                      W: dense_1_dense_weights             (8,16) (29)        
+                                                                      W: dense_1_dense_bias                (16,) (30)         
+                                                                      O: dense_1_dense_output              (1,1,16) (12)      
+------ -------------------------- ---- -------------- ------- ------- ------------------------------------ ------------------ 
+12     dense_1                    7    nl             160     0       I: dense_1_dense_output              (1,1,16) (12)      
+                                                                      O: dense_1_output                    (1,1,16) (13)      
+------ -------------------------- ---- -------------- ------- ------- ------------------------------------ ------------------ 
+13     multiply                   10   eltwise/mul    1440    0       I: max_pooling1d_output              (1,90,16) (4)      
+                                                                      I: dense_1_output                    (1,1,16) (13)      
+                                                                      O: multiply_output                   (1,90,16) (14)     
+------ -------------------------- ---- -------------- ------- ------- ------------------------------------ ------------------ 
+14     add                        12   eltwise/sum    1440    0       I: multiply_output                   (1,90,16) (14)     
+                                                                      I: dense_3_output                    (1,1,16) (9)       
+                                                                      O: add_output                        (1,90,16) (15)     
+------ -------------------------- ---- -------------- ------- ------- ------------------------------------ ------------------ 
+15     dense_4_dense              14   dense          92224   93440   I: add_output0                       (1,1440) (15)      
+                                                                      W: dense_4_dense_weights             (1440,64) (31)     
+                                                                      W: dense_4_dense_bias                (64,) (32)         
+                                                                      O: dense_4_dense_output              (1,64) (16)        
+------ -------------------------- ---- -------------- ------- ------- ------------------------------------ ------------------ 
+16     dense_4                    14   nl             64      0       I: dense_4_dense_output              (1,64) (16)        
+                                                                      O: dense_4_output                    (1,64) (17)        
+------ -------------------------- ---- -------------- ------- ------- ------------------------------------ ------------------ 
+17     dense_5_dense              15   dense          65      260     I: dense_4_output                    (1,64) (17)        
+                                                                      W: dense_5_dense_weights             (64,1) (33)        
+                                                                      W: dense_5_dense_bias                (1,) (34)          
+                                                                      O: dense_5_dense_output              (1,1) (18)         
+------ -------------------------- ---- -------------- ------- ------- ------------------------------------ ------------------ 
+
+
+
+Number of operations per c-layer
+------- ------ --------------------------------- --------- ---------------- -------- ---------- 
+c_id    m_id   name (type)                             #op             type   #param   sparsity 
+------- ------ --------------------------------- --------- ---------------- -------- ---------- 
+0       1      conv1d_conv2d (conv2d)               40,336     smul_f32_f32      464     0.0086 
+1       1      conv1d (nl)                           1,440       op_f32_f32          
+2       2      batch_normalization (bn)              2,880     smul_f32_f32       32     0.0000 
+3       3      max_pooling1d (pool)                  1,440       op_f32_f32          
+4       4      global_average_pooling1d (pool)       1,440       op_f32_f32          
+5       9      dense_2_dense (dense)                   272     smul_f32_f32      272     0.0000 
+6       9      dense_2 (nl)                             16       op_f32_f32          
+7       11     dense_3_dense (dense)                   272     smul_f32_f32      272     0.0000 
+8       11     dense_3 (nl)                            160       op_f32_f32          
+9       6      dense_dense (dense)                     136     smul_f32_f32      136     0.0000 
+10      6      dense (nl)                               80       op_f32_f32          
+11      7      dense_1_dense (dense)                   144     smul_f32_f32      144     0.0000 
+12      7      dense_1 (nl)                            160       op_f32_f32          
+13      10     multiply (eltwise/mul)                1,440       op_f32_f32          
+14      12     add (eltwise/sum)                     1,440       op_f32_f32          
+15      14     dense_4_dense (dense)                92,224   smul_f32_f32c8   92,224     0.0000 
+16      14     dense_4 (nl)                             64       op_f32_f32          
+17      15     dense_5_dense (dense)                    65     smul_f32_f32       65     0.0000 
+------- ------ --------------------------------- --------- ---------------- -------- ---------- 
+total                                              144,009                    93,609     0.0001 
+
+Number of operation types
+---------------- -------- ----------- 
+operation type          #           % 
+---------------- -------- ----------- 
+smul_f32_f32       44,105       30.6% 
+op_f32_f32          7,680        5.3% 
+smul_f32_f32c8     92,224       64.0% 
+
+Complexity report (model)
+------ -------------------------- ------------------------- ------------------------- ---------- 
+m_id   name                       c_macc                    c_rom                     c_id       
+------ -------------------------- ------------------------- ------------------------- ---------- 
+1      conv1d_conv2d              |||||||           29.0%   |                  1.9%   [0, 1]     
+2      batch_normalization        |                  2.0%   |                  0.1%   [2]        
+3      max_pooling1d              |                  1.0%   |                  0.0%   [3]        
+4      global_average_pooling1d   |                  1.0%   |                  0.0%   [4]        
+6      dense_dense                |                  0.1%   |                  0.5%   [9, 10]    
+7      dense_1_dense              |                  0.2%   |                  0.6%   [11, 12]   
+9      dense_2_dense              |                  0.2%   |                  1.1%   [5, 6]     
+10     multiply                   |                  1.0%   |                  0.0%   [13]       
+11     dense_3_dense              |                  0.3%   |                  1.1%   [7, 8]     
+12     add                        |                  1.0%   |                  0.0%   [14]       
+14     dense_4_dense              ||||||||||||||||  64.1%   ||||||||||||||||  94.4%   [15, 16]   
+15     dense_5_dense              |                  0.0%   |                  0.3%   [17]       
+------ -------------------------- ------------------------- ------------------------- ---------- 
+macc=144,009 weights=98,980 act=10,180 ram_io=0
+
+Generated files (7)
+------------------------------------------------------------------------ 
+C:\Users\Administrator\.stm32cubemx\network_output\cecnn_config.h        
+C:\Users\Administrator\.stm32cubemx\network_output\cecnn.h               
+C:\Users\Administrator\.stm32cubemx\network_output\cecnn.c               
+C:\Users\Administrator\.stm32cubemx\network_output\cecnn_data_params.h   
+C:\Users\Administrator\.stm32cubemx\network_output\cecnn_data_params.c   
+C:\Users\Administrator\.stm32cubemx\network_output\cecnn_data.h          
+C:\Users\Administrator\.stm32cubemx\network_output\cecnn_data.c          

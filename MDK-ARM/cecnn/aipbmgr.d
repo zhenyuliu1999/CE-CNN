@@ -1,0 +1,14 @@
+cecnn\aipbmgr.o: ../X-CUBE-AI/App/aiPbMgr.c
+cecnn\aipbmgr.o: ../X-CUBE-AI/App/aiPbMgr.h
+cecnn\aipbmgr.o: F:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+cecnn\aipbmgr.o: ../X-CUBE-AI/App/pb.h
+cecnn\aipbmgr.o: F:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+cecnn\aipbmgr.o: F:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+cecnn\aipbmgr.o: F:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+cecnn\aipbmgr.o: ../X-CUBE-AI/App/stm32msg.pb.h
+cecnn\aipbmgr.o: ../X-CUBE-AI/App/aiPbIO.h
+cecnn\aipbmgr.o: ../X-CUBE-AI/App/pb_encode.h
+cecnn\aipbmgr.o: ../X-CUBE-AI/App/pb_decode.h
+cecnn\aipbmgr.o: ../X-CUBE-AI/App/ai_device_adaptor.h
+cecnn\aipbmgr.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
+cecnn\aipbmgr.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
